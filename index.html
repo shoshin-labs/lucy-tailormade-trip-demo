@@ -3,141 +3,94 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lucy Rogers Tailormade Trips — Private Client Trip Site Demo</title>
-  <meta name="description" content="A private trip-site demo showing proposal, revision, and live itinerary states for a bespoke travel client journey." />
+  <title>Lucy Tailormade Trips — Dual Product Demo</title>
+  <meta name="description" content="Two-app demo: a client-facing trip microsite and a Lucy studio workflow app for creating bespoke trip websites." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root{--bg:#0b1320;--fg:#f5f1ea;--muted:#c9c2b5;--line:rgba(255,255,255,.14);--gold:#d0a668;--teal:#77c8be}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--fg);background:linear-gradient(180deg,#0a1220,#101b27)}
+    .wrap{min-height:100vh;display:grid;grid-template-rows:auto 1fr;padding:24px;gap:24px}
+    header{display:flex;justify-content:space-between;gap:16px;align-items:center}
+    .eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:.75rem;color:var(--teal);font-weight:800;margin:0 0 8px}
+    h1,h2{font-family:"Cormorant Garamond",serif;line-height:.98;margin:0} h1{font-size:clamp(2.1rem,4.4vw,4rem);max-width:14ch}
+    .lede{max-width:66ch;color:var(--muted);line-height:1.7;font-size:1.05rem}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+    .card{position:relative;border-radius:32px;overflow:hidden;min-height:80vh;border:1px solid var(--line);background:#111a25;box-shadow:0 30px 60px rgba(0,0,0,.25)}
+    .panel{position:absolute;inset:0;padding:32px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(180deg,rgba(7,10,16,.18),rgba(7,10,16,.76))}
+    .trip{background:url('https://images.unsplash.com/photo-1512813195386-6cf811ad3542?auto=format&fit=crop&w=1600&q=80') center/cover}
+    .studio{background:radial-gradient(circle at top right, rgba(119,200,190,.22), transparent 28%), radial-gradient(circle at bottom left, rgba(208,166,104,.22), transparent 26%), linear-gradient(180deg, #152131, #0e1721)}
+    h2{font-size:clamp(2rem,3.4vw,3.5rem);max-width:11ch;margin-bottom:14px}
+    p{margin:0} .meta,.bullets{color:var(--muted);line-height:1.7} .bullets{display:grid;gap:10px;padding-left:18px;font-size:.98rem}
+    .pillrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.pill{padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.1);backdrop-filter:blur(10px);font-size:.92rem}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:999px;text-decoration:none;color:var(--fg);font-weight:700;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08)}
+    .btn.primary{background:var(--gold);color:#1a1308;border-color:transparent}.footer-note{color:var(--muted);font-size:.92rem}
+    @media (max-width:920px){.grid{grid-template-columns:1fr}.card{min-height:58vh}.wrap{padding:16px}}
+  </style>
 </head>
 <body>
-  <div class="page-shell">
-    <header class="topbar">
+  <div class="wrap">
+    <header>
       <div>
-        <p class="eyebrow">Private client microsite demo</p>
-        <h1>Lucy Rogers Tailormade Trips</h1>
+        <p class="eyebrow">Bespoke travel product demo</p>
+        <h1>Two separate apps: Lucy’s studio and the client’s private trip site</h1>
       </div>
-      <a class="ghost-button" href="#next-demo">MVP recommendation</a>
+      <div class="pillrow">
+        <span class="pill">GitHub Pages prototype</span>
+        <span class="pill">Static MVP</span>
+      </div>
     </header>
-
-    <main>
-      <section class="hero card glow">
-        <div class="hero-copy">
-          <p class="eyebrow">Sample client scenario</p>
-          <h2 id="tripTitle">Anna &amp; Marcus — Oaxaca Highlands &amp; Pacific Coast</h2>
-          <p id="tripNarrative" class="lede"></p>
-          <div class="hero-meta" id="heroMeta"></div>
-          <div class="state-switcher" role="tablist" aria-label="Trip lifecycle view">
-            <button class="state-button active" data-state="proposal" role="tab" aria-selected="true">Proposal</button>
-            <button class="state-button" data-state="revision" role="tab" aria-selected="false">Revision</button>
-            <button class="state-button" data-state="live" role="tab" aria-selected="false">Booked / In Trip</button>
+    <p class="lede">This demo is now split the way you described: one product for <strong>Lucy to create and evolve bespoke trip websites</strong>, and a separate product for <strong>the client to actually use during the journey</strong>. Open either side below.</p>
+    <section class="grid">
+      <article class="card trip">
+        <div class="panel">
+          <div>
+            <p class="eyebrow">Client-facing app</p>
+            <h2>Oaxaca journey microsite</h2>
+            <p class="meta">A cinematic, full-screen trip website for Anna & Marcus that feels genuinely useful before and during the trip.</p>
+            <div class="pillrow">
+              <span class="pill">Full-screen imagery</span>
+              <span class="pill">Today / route / stays</span>
+              <span class="pill">Useful on phone</span>
+            </div>
+          </div>
+          <div>
+            <ul class="bullets">
+              <li>Immersive hero and destination-led sections</li>
+              <li>Today panel, route, support, and restaurant picks</li>
+            </ul>
+            <div class="cta">
+              <a class="btn primary" href="./trip/">Open trip microsite</a>
+            </div>
           </div>
         </div>
-        <aside class="hero-panel">
-          <div class="status-block">
-            <span class="label">Current state</span>
-            <strong id="statusBadge" class="status-badge"></strong>
+      </article>
+      <article class="card studio">
+        <div class="panel">
+          <div>
+            <p class="eyebrow">Lucy-facing app</p>
+            <h2>Trip studio workflow</h2>
+            <p class="meta">A working concept for how Lucy captures a brief, gets AI help with structure and copy, and publishes or updates the private client site.</p>
+            <div class="pillrow">
+              <span class="pill">Enquiry to publish</span>
+              <span class="pill">AI co-pilot</span>
+              <span class="pill">Versioned trip states</span>
+            </div>
           </div>
           <div>
-            <span class="label">Why this product works</span>
-            <p id="stateSummary"></p>
-          </div>
-        </aside>
-      </section>
-
-      <section class="grid two-col">
-        <article class="card">
-          <p class="eyebrow">A. Sample client scenario</p>
-          <h3>The client brief</h3>
-          <div id="clientBrief" class="checklist"></div>
-        </article>
-        <article class="card">
-          <p class="eyebrow">Trip design logic</p>
-          <h3>Why this fits Lucy’s brand</h3>
-          <div id="designLogic" class="checklist"></div>
-        </article>
-      </section>
-
-      <section class="card">
-        <p class="eyebrow">B. End-to-end workflow</p>
-        <h3>One private site, three lifecycle states</h3>
-        <div class="timeline" id="workflowTimeline"></div>
-      </section>
-
-      <section class="grid two-col sticky-start">
-        <article class="card tall">
-          <p class="eyebrow">C. Trip-site information architecture</p>
-          <h3>Site structure</h3>
-          <div id="siteSections"></div>
-        </article>
-        <article class="stack">
-          <div class="card">
-            <p class="eyebrow">Current version notes</p>
-            <h3>What changes between stages</h3>
-            <div id="versionNotes" class="checklist"></div>
-          </div>
-          <div class="card">
-            <p class="eyebrow">Signature moments</p>
-            <h3>Experiences that justify premium positioning</h3>
-            <div id="signatureMoments" class="experience-grid"></div>
-          </div>
-        </article>
-      </section>
-
-      <section class="grid two-col">
-        <article class="card tall">
-          <p class="eyebrow">Sample itinerary</p>
-          <h3>Representative day-by-day view</h3>
-          <div id="itineraryDays" class="days"></div>
-        </article>
-        <article class="stack">
-          <div class="card">
-            <p class="eyebrow">Stay collection</p>
-            <h3>Chosen bases</h3>
-            <div id="stays" class="stay-grid"></div>
-          </div>
-          <div class="card">
-            <p class="eyebrow">Travel companion mode</p>
-            <h3>Useful in-trip blocks</h3>
-            <div id="companionBlocks" class="checklist"></div>
-          </div>
-        </article>
-      </section>
-
-      <section class="card">
-        <p class="eyebrow">D. Operational workflow</p>
-        <h3>What is manual, templated, or automatable</h3>
-        <div class="ops-grid">
-          <div>
-            <h4>Manual by Lucy</h4>
-            <div id="manualOps" class="checklist"></div>
-          </div>
-          <div>
-            <h4>Templated</h4>
-            <div id="templatedOps" class="checklist"></div>
-          </div>
-          <div>
-            <h4>Potentially automated later</h4>
-            <div id="automatedOps" class="checklist"></div>
+            <ul class="bullets">
+              <li>Shows the workflow Lucy would actually use</li>
+              <li>Separates bespoke judgement from templated and automatable steps</li>
+            </ul>
+            <div class="cta">
+              <a class="btn primary" href="./studio/">Open Lucy studio</a>
+            </div>
           </div>
         </div>
-      </section>
-
-      <section class="grid two-col" id="next-demo">
-        <article class="card">
-          <p class="eyebrow">E. MVP recommendation</p>
-          <h3>Best starting workflow</h3>
-          <div id="mvpRecommendation"></div>
-        </article>
-        <article class="card">
-          <p class="eyebrow">F. Best next demo to build</p>
-          <h3>Concrete prototype concept</h3>
-          <div id="nextDemo"></div>
-        </article>
-      </section>
-    </main>
+      </article>
+    </section>
+    <p class="footer-note">Demo structure: <code>/trip</code> = client microsite, <code>/studio</code> = Lucy workflow app.</p>
   </div>
-
-  <script src="script.js"></script>
 </body>
 </html>

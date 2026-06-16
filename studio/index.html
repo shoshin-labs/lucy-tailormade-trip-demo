@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucy Trip Studio</title>
+  <meta name="description" content="Workflow app concept for Lucy to create, revise, and publish private client trip sites with AI assistance." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="../">← Back to demo hub</a>
+      <div>
+        <p class="eyebrow">Lucy studio</p>
+        <h1>Bespoke trip builder</h1>
+        <p class="muted">A workflow product for capturing the brief, shaping the trip, drafting the site, revising it with AI help, and publishing the client version.</p>
+      </div>
+      <nav class="steps" id="stepNav"></nav>
+      <div class="sidebar-card">
+        <span class="label">Core product idea</span>
+        <p>The system should help Lucy produce thoughtful trip sites faster without flattening her judgement into template sludge.</p>
+      </div>
+    </aside>
+
+    <main class="main-grid">
+      <section class="board card">
+        <div class="board-head">
+          <div>
+            <p class="eyebrow">Active client</p>
+            <h2>Anna &amp; Marcus — Oaxaca / Nov</h2>
+          </div>
+          <div class="pill-row">
+            <span class="pill">Enquiry scored: high fit</span>
+            <span class="pill accent">State: revised proposal</span>
+          </div>
+        </div>
+        <div class="columns">
+          <article class="column">
+            <span class="label">Input</span>
+            <ul>
+              <li>Website enquiry / email</li>
+              <li>Discovery notes</li>
+              <li>Budget band + dates</li>
+              <li>Past trip cues / exclusions</li>
+            </ul>
+          </article>
+          <article class="column">
+            <span class="label">Lucy judgement</span>
+            <ul>
+              <li>Destination and route choice</li>
+              <li>Pacing logic</li>
+              <li>Stay selection</li>
+              <li>Signature moments</li>
+            </ul>
+          </article>
+          <article class="column">
+            <span class="label">AI assist</span>
+            <ul>
+              <li>Draft narrative and site blocks</li>
+              <li>Turn notes into structured itinerary cards</li>
+              <li>Summarise revision changes</li>
+              <li>Prepare publish-ready copy</li>
+            </ul>
+          </article>
+          <article class="column">
+            <span class="label">Output</span>
+            <ul>
+              <li>Private proposal site</li>
+              <li>Version 2 revision</li>
+              <li>Booked/live client microsite</li>
+              <li>Post-trip keepsake archive</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <article class="editor card">
+          <div class="workspace-head">
+            <div>
+              <p class="eyebrow">Studio workspace</p>
+              <h2 id="stepTitle"></h2>
+            </div>
+            <button class="publish-btn">Generate / update site</button>
+          </div>
+          <div id="stepBody" class="step-body"></div>
+        </article>
+
+        <article class="assistant card">
+          <p class="eyebrow">AI co-pilot</p>
+          <h2>What the agent helps with</h2>
+          <div class="assistant-stack" id="assistantStack"></div>
+        </article>
+
+        <article class="preview card">
+          <p class="eyebrow">Client output preview</p>
+          <h2>Published site state</h2>
+          <div class="preview-shot">
+            <div class="preview-screen">
+              <div class="preview-hero"></div>
+              <div class="preview-lines"></div>
+              <div class="preview-lines short"></div>
+              <div class="preview-cards">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+          <p class="muted">Lucy edits structured trip content here; the client site updates from the same source rather than restarting from scratch each time.</p>
+          <a class="open-trip" href="../trip/">Open client microsite ↗</a>
+        </article>
+      </section>
+    </main>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>

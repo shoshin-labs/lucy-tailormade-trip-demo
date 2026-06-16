@@ -1,26 +1,26 @@
-# Lucy Rogers Tailormade Trips — Private Client Trip Site Demo
+# Lucy Rogers Tailormade Trips — Dual-App Demo
 
-A responsive static demo showing how a single private microsite can evolve through the lifecycle of a bespoke trip:
+Live demo: https://shoshin-labs.github.io/lucy-tailormade-trip-demo/
 
-1. **Proposal**
-2. **Revision**
-3. **Booked / In Trip**
+## Structure
 
-## Demo concept
+- `/trip/` — client-facing bespoke trip microsite demo
+- `/studio/` — Lucy-facing workflow / trip-builder app demo
+- `/` — split landing page linking to both
 
-Sample clients: **Anna & Marcus**
-Sample trip: **Oaxaca Highlands & Pacific Coast**
+## Product framing
 
-The page is designed to test whether the product is commercially viable as a premium bespoke-travel offering, not just visually attractive.
+This repo now demonstrates two separate products:
 
-## What the demo shows
+1. **Client trip site**
+   - immersive, image-led, mobile-friendly
+   - feels like a premium travel companion, not a PDF replacement
+   - includes route, stays, today panel, practical actions, and daily flow
 
-- A realistic sample client scenario
-- End-to-end workflow from enquiry to live itinerary
-- Proposed information architecture for each trip site
-- Manual vs templated vs later-automatable operations
-- MVP recommendation
-- Best next demo to build
+2. **Lucy studio**
+   - shows how Lucy would create the site
+   - enquiry → brief → route → stays → AI draft → publish/update workflow
+   - makes the product operationally repeatable
 
 ## Local preview
 
@@ -28,8 +28,7 @@ The page is designed to test whether the product is commercially viable as a pre
 python3 -m http.server 8000
 ```
 
-Then open `http://localhost:8000/`.
-
-## Deploy to GitHub Pages
-
-This repo is suitable for direct Pages hosting from the root of `main`.
+Then open:
+- `http://localhost:8000/`
+- `http://localhost:8000/trip/`
+- `http://localhost:8000/studio/`
