@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucy Rogers Tailormade Trips — Private Client Trip Site Demo</title>
+  <meta name="description" content="A private trip-site demo showing proposal, revision, and live itinerary states for a bespoke travel client journey." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Private client microsite demo</p>
+        <h1>Lucy Rogers Tailormade Trips</h1>
+      </div>
+      <a class="ghost-button" href="#next-demo">MVP recommendation</a>
+    </header>
+
+    <main>
+      <section class="hero card glow">
+        <div class="hero-copy">
+          <p class="eyebrow">Sample client scenario</p>
+          <h2 id="tripTitle">Anna &amp; Marcus — Oaxaca Highlands &amp; Pacific Coast</h2>
+          <p id="tripNarrative" class="lede"></p>
+          <div class="hero-meta" id="heroMeta"></div>
+          <div class="state-switcher" role="tablist" aria-label="Trip lifecycle view">
+            <button class="state-button active" data-state="proposal" role="tab" aria-selected="true">Proposal</button>
+            <button class="state-button" data-state="revision" role="tab" aria-selected="false">Revision</button>
+            <button class="state-button" data-state="live" role="tab" aria-selected="false">Booked / In Trip</button>
+          </div>
+        </div>
+        <aside class="hero-panel">
+          <div class="status-block">
+            <span class="label">Current state</span>
+            <strong id="statusBadge" class="status-badge"></strong>
+          </div>
+          <div>
+            <span class="label">Why this product works</span>
+            <p id="stateSummary"></p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="grid two-col">
+        <article class="card">
+          <p class="eyebrow">A. Sample client scenario</p>
+          <h3>The client brief</h3>
+          <div id="clientBrief" class="checklist"></div>
+        </article>
+        <article class="card">
+          <p class="eyebrow">Trip design logic</p>
+          <h3>Why this fits Lucy’s brand</h3>
+          <div id="designLogic" class="checklist"></div>
+        </article>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">B. End-to-end workflow</p>
+        <h3>One private site, three lifecycle states</h3>
+        <div class="timeline" id="workflowTimeline"></div>
+      </section>
+
+      <section class="grid two-col sticky-start">
+        <article class="card tall">
+          <p class="eyebrow">C. Trip-site information architecture</p>
+          <h3>Site structure</h3>
+          <div id="siteSections"></div>
+        </article>
+        <article class="stack">
+          <div class="card">
+            <p class="eyebrow">Current version notes</p>
+            <h3>What changes between stages</h3>
+            <div id="versionNotes" class="checklist"></div>
+          </div>
+          <div class="card">
+            <p class="eyebrow">Signature moments</p>
+            <h3>Experiences that justify premium positioning</h3>
+            <div id="signatureMoments" class="experience-grid"></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="grid two-col">
+        <article class="card tall">
+          <p class="eyebrow">Sample itinerary</p>
+          <h3>Representative day-by-day view</h3>
+          <div id="itineraryDays" class="days"></div>
+        </article>
+        <article class="stack">
+          <div class="card">
+            <p class="eyebrow">Stay collection</p>
+            <h3>Chosen bases</h3>
+            <div id="stays" class="stay-grid"></div>
+          </div>
+          <div class="card">
+            <p class="eyebrow">Travel companion mode</p>
+            <h3>Useful in-trip blocks</h3>
+            <div id="companionBlocks" class="checklist"></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">D. Operational workflow</p>
+        <h3>What is manual, templated, or automatable</h3>
+        <div class="ops-grid">
+          <div>
+            <h4>Manual by Lucy</h4>
+            <div id="manualOps" class="checklist"></div>
+          </div>
+          <div>
+            <h4>Templated</h4>
+            <div id="templatedOps" class="checklist"></div>
+          </div>
+          <div>
+            <h4>Potentially automated later</h4>
+            <div id="automatedOps" class="checklist"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid two-col" id="next-demo">
+        <article class="card">
+          <p class="eyebrow">E. MVP recommendation</p>
+          <h3>Best starting workflow</h3>
+          <div id="mvpRecommendation"></div>
+        </article>
+        <article class="card">
+          <p class="eyebrow">F. Best next demo to build</p>
+          <h3>Concrete prototype concept</h3>
+          <div id="nextDemo"></div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
