@@ -17,9 +17,20 @@
       <div>
         <p class="eyebrow">Lucy studio</p>
         <h1>Bespoke trip builder</h1>
-        <p class="muted">A workflow product for capturing the brief, shaping the trip, drafting the site, revising it with AI help, and publishing the client version.</p>
+        <p class="muted">A workflow product for capturing the brief, importing source material, shaping the trip, and publishing a client site that stays live throughout the journey.</p>
       </div>
+
+      <section class="sidebar-card action-card">
+        <span class="label">Start here</span>
+        <div class="action-stack">
+          <button class="action-btn primary" id="newTripBtn">Create new trip</button>
+          <button class="action-btn" id="importBtn">Import enquiry / notes</button>
+          <button class="action-btn" id="publishBtn">Publish preview link</button>
+        </div>
+      </section>
+
       <nav class="steps" id="stepNav"></nav>
+
       <div class="sidebar-card">
         <span class="label">Core product idea</span>
         <p>The system should help Lucy produce thoughtful trip sites faster without flattening her judgement into template sludge.</p>
@@ -27,7 +38,7 @@
     </aside>
 
     <main class="main-grid">
-      <section class="board card">
+      <section class="board card reveal">
         <div class="board-head">
           <div>
             <p class="eyebrow">Active client</p>
@@ -35,7 +46,7 @@
           </div>
           <div class="pill-row">
             <span class="pill">Enquiry scored: high fit</span>
-            <span class="pill accent">State: revised proposal</span>
+            <span class="pill accent" id="statePill">State: revised proposal</span>
           </div>
         </div>
         <div class="columns">
@@ -70,7 +81,7 @@
             <span class="label">Output</span>
             <ul>
               <li>Private proposal site</li>
-              <li>Version 2 revision</li>
+              <li>Versioned revisions</li>
               <li>Booked/live client microsite</li>
               <li>Post-trip keepsake archive</li>
             </ul>
@@ -79,24 +90,24 @@
       </section>
 
       <section class="workspace">
-        <article class="editor card">
+        <article class="editor card reveal">
           <div class="workspace-head">
             <div>
               <p class="eyebrow">Studio workspace</p>
               <h2 id="stepTitle"></h2>
             </div>
-            <button class="publish-btn">Generate / update site</button>
+            <button class="publish-btn" id="generateBtn">Generate / update site</button>
           </div>
           <div id="stepBody" class="step-body"></div>
         </article>
 
-        <article class="assistant card">
+        <article class="assistant card reveal">
           <p class="eyebrow">AI co-pilot</p>
           <h2>What the agent helps with</h2>
           <div class="assistant-stack" id="assistantStack"></div>
         </article>
 
-        <article class="preview card">
+        <article class="preview card reveal">
           <p class="eyebrow">Client output preview</p>
           <h2>Published site state</h2>
           <div class="preview-shot">
@@ -110,7 +121,21 @@
             </div>
           </div>
           <p class="muted">Lucy edits structured trip content here; the client site updates from the same source rather than restarting from scratch each time.</p>
-          <a class="open-trip" href="../trip/">Open client microsite ↗</a>
+          <div class="button-stack compact">
+            <a class="open-trip" href="../trip/">Open client microsite ↗</a>
+            <a class="open-trip secondary" href="../">Back to dual-app overview</a>
+          </div>
+        </article>
+
+        <article class="pipeline card reveal">
+          <p class="eyebrow">Operational flow</p>
+          <h2>What Lucy actually does</h2>
+          <div class="pipeline-list">
+            <div class="pipeline-row"><strong>1.</strong><span>Create trip record and choose a base template.</span></div>
+            <div class="pipeline-row"><strong>2.</strong><span>Import enquiry email, call notes, and supplier snippets into one source panel.</span></div>
+            <div class="pipeline-row"><strong>3.</strong><span>Edit the brief, route, stays, and signature moments with Lucy in control.</span></div>
+            <div class="pipeline-row"><strong>4.</strong><span>Generate proposal microsite, revise from feedback, then switch the same site into booked/live mode.</span></div>
+          </div>
         </article>
       </section>
     </main>
