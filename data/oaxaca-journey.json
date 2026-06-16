@@ -1,0 +1,441 @@
+{
+  "site": {
+    "tripName": "Oaxaca Highlands & Pacific Coast",
+    "clients": "Anna & Marcus",
+    "dates": "27 Nov – 8 Dec",
+    "nights": 11,
+    "bases": 3,
+    "status": "Booked journey",
+    "tone": "A November journey through markets, mountain air, studio visits, and a beautifully slow coast finish — designed to feel culturally rich, visually calm, and easy to use while travelling.",
+    "supportEmail": "journeys@tailormade-trip-demo.com",
+    "supportPhone": "+44 0000 000000"
+  },
+  "hero": {
+    "eyebrow": "Private trip",
+    "quickActions": [
+      {"label": "Airport map", "href": "https://www.google.com/maps/search/Oaxaca+International+Airport/"},
+      {"label": "Centro pin", "href": "https://www.google.com/maps/search/Templo+de+Santo+Domingo+de+Guzman+Oaxaca/"},
+      {"label": "Packing list", "href": "#checklist"}
+    ],
+    "infoRibbon": ["11 nights", "3 bases", "private transfers + booked stays", "live itinerary companion"]
+  },
+  "journeySummary": [
+    {
+      "range": "Days 1–4",
+      "place": "Oaxaca City",
+      "summary": "Markets, architecture, maker visits, long lunches, and a sense of being fully inside the city rather than skimming it.",
+      "links": [
+        {"label": "City map", "href": "https://www.google.com/maps/search/Oaxaca+Centro/"},
+        {"label": "20 de Noviembre", "href": "https://www.google.com/maps/search/Mercado+20+de+Noviembre+Oaxaca/"}
+      ]
+    },
+    {
+      "range": "Day 5",
+      "place": "Sierra Norte",
+      "summary": "One mountain night for contrast and reset, kept deliberately simple so the middle of the trip feels restorative rather than busy.",
+      "links": [
+        {"label": "Sierra Norte", "href": "https://www.google.com/maps/search/Sierra+Norte+Oaxaca/"},
+        {"label": "Trail region", "href": "https://www.google.com/maps/search/Pueblos+Mancomunados+Oaxaca/"}
+      ]
+    },
+    {
+      "range": "Days 6–11",
+      "place": "Pacific Coast",
+      "summary": "A calm coast finish with protected free time, a few lightly programmed moments, and a gentler pace for the final memory of the trip.",
+      "links": [
+        {"label": "Puerto Escondido", "href": "https://www.google.com/maps/search/Puerto+Escondido+Oaxaca/"},
+        {"label": "Lagoon option", "href": "https://www.google.com/maps/search/Manialtepec+Lagoon+Oaxaca/"}
+      ]
+    }
+  ],
+  "stays": [
+    {
+      "range": "27–30 Nov",
+      "name": "Oaxaca courtyard hotel",
+      "type": "Hotel",
+      "area": "Centro Histórico",
+      "summary": "A calm, design-aware city base with easy access to markets, galleries, and dinners on foot.",
+      "notes": ["3 nights confirmed", "Private arrival transfer booked", "Best for culture-heavy first days"],
+      "map": "https://www.google.com/maps/search/Oaxaca+Centro/"
+    },
+    {
+      "range": "30 Nov–1 Dec",
+      "name": "Sierra Norte lodge",
+      "type": "Lodge",
+      "area": "Pueblos Mancomunados",
+      "summary": "Simple, scenic, and chosen for a proper reset: cooler air, one guided walk, and a genuinely early night.",
+      "notes": ["1 night confirmed", "Guide and dinner arranged", "Light overnight bag recommended"],
+      "map": "https://www.google.com/maps/search/Sierra+Norte+Oaxaca/"
+    },
+    {
+      "range": "1–8 Dec",
+      "name": "Pacific coast apartment retreat",
+      "type": "Apartment",
+      "area": "Puerto Escondido coast",
+      "summary": "Intimate, warm, and visually calm — chosen so the final days can hold both planned moments and real idleness.",
+      "notes": ["7 nights confirmed", "Private overland transfer booked", "Beach club and dinner suggestions loaded below"],
+      "map": "https://www.google.com/maps/search/Puerto+Escondido+Oaxaca/"
+    }
+  ],
+  "signatureMoments": [
+    {
+      "place": "Oaxaca City",
+      "title": "Morning market pass",
+      "summary": "Start the city with market texture first, before museums or formal touring.",
+      "links": [
+        {"label": "20 de Noviembre", "href": "https://www.google.com/maps/search/Mercado+20+de+Noviembre+Oaxaca/"},
+        {"label": "Benito Juárez", "href": "https://www.google.com/maps/search/Mercado+Benito+Juarez+Oaxaca/"}
+      ]
+    },
+    {
+      "place": "Valley makers",
+      "title": "Textile studio conversation",
+      "summary": "A small human-scale visit that gives the craft context and keeps the day feeling personal.",
+      "links": [
+        {"label": "Studio area", "href": "https://www.google.com/maps/search/Teotitlan+del+Valle+Oaxaca/"},
+        {"label": "Today’s plan", "href": "#today"}
+      ]
+    },
+    {
+      "place": "Pacific finish",
+      "title": "Sunset beach and lagoon option",
+      "summary": "The trip ends with choices, not obligations: stay horizontal, or add one last nature note if the mood is right.",
+      "links": [
+        {"label": "Beach pin", "href": "https://www.google.com/maps/search/Playa+Carrizalillo+Puerto+Escondido/"},
+        {"label": "Lagoon pin", "href": "https://www.google.com/maps/search/Manialtepec+Lagoon+Oaxaca/"}
+      ]
+    }
+  ],
+  "practical": {
+    "weather": {
+      "sun": "Best for valley outings and coast days: keep the longer outside lunch, the beach window, and the studio stop. Use hats, light linen, and cash for small craft purchases.",
+      "rain": "If energy dips or weather turns, swap the more exposed excursion for a gentler museum pass, longer lunch, or apartment terrace afternoon. The point is to preserve tone, not force the original plan."
+    },
+    "checklist": [
+      "Passport and arrival documents",
+      "Light layers for mountain temperature change",
+      "Sandals plus one smarter dinner option",
+      "Cash for small producers and market stops",
+      "Swimwear and sun protection"
+    ],
+    "copyNotes": [
+      "Nos vemos en el patio del hotel a las diez.",
+      "La cuenta, por favor.",
+      "Carry some cash for small producers and market stops."
+    ],
+    "contacts": [
+      {"label": "Email trip desk", "href": "mailto:journeys@tailormade-trip-demo.com"},
+      {"label": "Call support", "href": "tel:+440000000000"},
+      {"label": "Airport route", "href": "https://www.google.com/maps/search/Oaxaca+International+Airport/"}
+    ]
+  },
+  "days": [
+    {
+      "day": 1,
+      "date": "Mon 27 Nov",
+      "title": "Arrive into Oaxaca",
+      "base": "Oaxaca courtyard hotel",
+      "status": ["Arrival day", "Transfer booked", "Dinner flexible"],
+      "summary": "A soft landing into the city: private meet at the airport, check-in at the courtyard hotel, and a first dinner nearby so the trip begins with atmosphere rather than logistics.",
+      "bookings": ["Private airport transfer confirmed", "3-night city hotel check-in", "Dinner suggestions loaded in site"],
+      "timeline": [
+        ["15:30", "Airport meet and transfer", "Driver meets at arrivals and takes you directly into Oaxaca Centro."],
+        ["17:00", "Hotel settle-in", "Check in, unpack, and take the courtyard slowly."],
+        ["20:00", "First dinner nearby", "Choose between courtyard dining, refined local cooking, or a rooftop supper depending on energy."]
+      ],
+      "actions": [
+        {"label": "Airport map", "href": "https://www.google.com/maps/search/Oaxaca+International+Airport/"},
+        {"label": "Hotel area", "href": "https://www.google.com/maps/search/Oaxaca+Centro/"}
+      ]
+    },
+    {
+      "day": 2,
+      "date": "Tue 28 Nov",
+      "title": "City orientation and architecture",
+      "base": "Oaxaca courtyard hotel",
+      "status": ["Walking day", "Lightly guided", "Evening free"],
+      "summary": "Use the first full day to get your bearings: Santo Domingo, a measured old-town walk, and enough free time to begin forming your own favourites.",
+      "bookings": ["Old-town orientation walk arranged", "Lunch reservation held", "Evening left open"],
+      "timeline": [
+        ["09:30", "Slow breakfast", "Ease into the city from the hotel courtyard before heading out."],
+        ["11:00", "Santo Domingo and central walk", "Architecture, plazas, and a first proper sense of route and scale."],
+        ["14:00", "Long lunch", "A table chosen more for mood than checklist-value."],
+        ["18:30", "Free evening", "Return to a gallery, bar, or rooftop if it feels right."]
+      ],
+      "actions": [
+        {"label": "Santo Domingo", "href": "https://www.google.com/maps/search/Templo+de+Santo+Domingo+de+Guzman+Oaxaca/"},
+        {"label": "Centro map", "href": "https://www.google.com/maps/search/Oaxaca+Centro/"}
+      ]
+    },
+    {
+      "day": 3,
+      "date": "Wed 29 Nov",
+      "title": "Culinary Oaxaca",
+      "base": "Oaxaca courtyard hotel",
+      "status": ["Food-led day", "Market + cooking", "Open evening"],
+      "summary": "A signature food day: market textures in the morning, a hands-on cooking session, then a free late afternoon to browse, rest, or follow a dinner suggestion.",
+      "bookings": ["Cooking session confirmed", "Market timing set", "Evening optional"],
+      "timeline": [
+        ["09:00", "Market pass", "Walk Mercado 20 de Noviembre before the city gets too hot."],
+        ["11:30", "Cooking session", "Hands-on lunch prep with regional ingredients and stories."],
+        ["17:30", "Open evening", "Take a mezcal bar, gallery, or rooftop option only if it feels right."]
+      ],
+      "actions": [
+        {"label": "Market pin", "href": "https://www.google.com/maps/search/Mercado+20+de+Noviembre+Oaxaca/"},
+        {"label": "Dinner options", "href": "https://www.google.com/maps/search/Levadura+de+Olla+Oaxaca/"}
+      ]
+    },
+    {
+      "day": 4,
+      "date": "Thu 30 Nov",
+      "title": "Maker day in the valley",
+      "base": "Oaxaca courtyard hotel",
+      "status": ["Private visit", "Driver booked", "Return to city"],
+      "summary": "A more personal day built around a textile studio conversation, lunch with a producer, and an easy return to the city for the final night in Oaxaca.",
+      "bookings": ["Driver and timing confirmed", "Studio visit arranged", "Lunch stop selected"],
+      "timeline": [
+        ["10:00", "Pickup from hotel", "Private driver collects from the courtyard entrance."],
+        ["11:00", "Textile studio conversation", "A small-scale visit that gives the craft a human frame."],
+        ["13:30", "Producer lunch", "Long lunch in the valley before returning."],
+        ["16:30", "Back to Oaxaca", "Easy evening close to the hotel."]
+      ],
+      "actions": [
+        {"label": "Studio area", "href": "https://www.google.com/maps/search/Teotitlan+del+Valle+Oaxaca/"},
+        {"label": "Open local map", "href": "https://www.google.com/maps/search/Oaxaca+Centro/"}
+      ]
+    },
+    {
+      "day": 5,
+      "date": "Fri 1 Dec",
+      "title": "Sierra Norte reset",
+      "base": "Sierra Norte lodge",
+      "status": ["Mountain transfer", "Guide booked", "1-night stay"],
+      "summary": "Just enough time in the mountains to shift the emotional register of the trip: cooler air, a guided walk, and one quiet evening before the coast.",
+      "bookings": ["Overland transfer booked", "Lodge night confirmed", "Guide and dinner arranged"],
+      "timeline": [
+        ["10:00", "Depart Oaxaca", "Driver route north with a light coffee stop."],
+        ["13:00", "Guided walk", "A low-pressure trail designed for pace and atmosphere, not mileage."],
+        ["19:00", "Firelit dinner", "Early supper and a genuinely quiet night."]
+      ],
+      "actions": [
+        {"label": "Sierra Norte map", "href": "https://www.google.com/maps/search/Sierra+Norte+Oaxaca/"},
+        {"label": "Trail region", "href": "https://www.google.com/maps/search/Pueblos+Mancomunados+Oaxaca/"}
+      ]
+    },
+    {
+      "day": 6,
+      "date": "Sat 2 Dec",
+      "title": "Transfer to the coast",
+      "base": "Pacific coast apartment retreat",
+      "status": ["Long transfer", "Apartment check-in", "Quiet evening"],
+      "summary": "A travel day handled as smoothly as possible, ending at the coast apartment in time for a reset, a view, and an uncomplicated dinner nearby.",
+      "bookings": ["Private transfer confirmed", "Apartment check-in arranged", "Welcome provisions added"],
+      "timeline": [
+        ["09:00", "Depart lodge", "Travel south with a comfort stop en route."],
+        ["14:30", "Apartment arrival", "Check in and settle before the coast section opens up."],
+        ["18:30", "Easy dinner", "Keep the first coast evening light and close by."]
+      ],
+      "actions": [
+        {"label": "Coast map", "href": "https://www.google.com/maps/search/Puerto+Escondido+Oaxaca/"},
+        {"label": "Beach area", "href": "https://www.google.com/maps/search/Playa+Carrizalillo+Puerto+Escondido/"}
+      ]
+    },
+    {
+      "day": 7,
+      "date": "Sun 3 Dec",
+      "title": "First full coast day",
+      "base": "Pacific coast apartment retreat",
+      "status": ["No hard commitments", "Beach priority", "Dinner suggestion loaded"],
+      "summary": "The coast begins without over-programming: a protected free day to swim, slow down, and let the final third of the trip breathe properly.",
+      "bookings": ["Apartment stay continuing", "Beach club suggestion held", "Dinner reservation optional"],
+      "timeline": [
+        ["09:30", "Slow breakfast", "Take the morning at the apartment terrace or nearby café."],
+        ["13:00", "Beach window", "A long middle stretch reserved for actual rest."],
+        ["19:30", "Dinner if wanted", "Go out only if the mood is there."]
+      ],
+      "actions": [
+        {"label": "Beach pin", "href": "https://www.google.com/maps/search/Playa+Carrizalillo+Puerto+Escondido/"},
+        {"label": "Apartment area", "href": "https://www.google.com/maps/search/Puerto+Escondido+Oaxaca/"}
+      ]
+    },
+    {
+      "day": 8,
+      "date": "Mon 4 Dec",
+      "title": "Lagoon or low-key coast day",
+      "base": "Pacific coast apartment retreat",
+      "status": ["Optional outing", "Weather-dependent", "Flex day"],
+      "summary": "Hold this day open until the weather and mood are clear: take the lagoon option if conditions are right, otherwise keep the rhythm local and easy.",
+      "bookings": ["Lagoon option pencilled", "No penalty for staying local", "Lunch flexible"],
+      "timeline": [
+        ["10:00", "Decision point", "Choose between the lagoon excursion or a local coast day."],
+        ["13:30", "Late lunch", "Keep the middle of the day generous and unhurried."],
+        ["18:00", "Sunset return", "If you go out, be back in time for a calm evening."]
+      ],
+      "actions": [
+        {"label": "Lagoon option", "href": "https://www.google.com/maps/search/Manialtepec+Lagoon+Oaxaca/"},
+        {"label": "Weather pivot", "href": "#weatherMode"}
+      ]
+    },
+    {
+      "day": 9,
+      "date": "Tue 5 Dec",
+      "title": "Design-led free day",
+      "base": "Pacific coast apartment retreat",
+      "status": ["Fully flexible", "Apartment base", "No transfers"],
+      "summary": "A day deliberately protected from over-scheduling so the coast section feels like a real exhale rather than a second sightseeing sprint.",
+      "bookings": ["No hard bookings", "Apartment night confirmed", "Dinner shortlist in site"],
+      "timeline": [
+        ["09:30", "Breakfast and reading time", "No imposed start today."],
+        ["12:30", "Pool or beach", "Choose the quieter option based on mood."],
+        ["20:00", "Dinner nearby", "Use the shortlist only if useful."]
+      ],
+      "actions": [
+        {"label": "Beach pin", "href": "https://www.google.com/maps/search/Playa+Carrizalillo+Puerto+Escondido/"},
+        {"label": "Dinner option", "href": "https://www.google.com/maps/search/Puerto+Escondido+restaurants/"}
+      ]
+    },
+    {
+      "day": 10,
+      "date": "Wed 6 Dec",
+      "title": "Last full coast day",
+      "base": "Pacific coast apartment retreat",
+      "status": ["Final full day", "Sunset focus", "Packing later"],
+      "summary": "Keep the final full day emotionally light: one last swim, one proper lunch, and a sunset plan worthy of the closing stretch.",
+      "bookings": ["Apartment continuing", "Sunset option selected on day", "Packing note loaded"],
+      "timeline": [
+        ["10:30", "Late start", "No alarm energy unless you want it."],
+        ["14:00", "Long lunch", "Make this one of the memorable coast meals."],
+        ["17:45", "Sunset moment", "Beach walk or rooftop depending on weather."],
+        ["21:00", "Pack lightly", "Leave the final morning calm."]
+      ],
+      "actions": [
+        {"label": "Sunset beach", "href": "https://www.google.com/maps/search/Playa+Carrizalillo+Puerto+Escondido/"},
+        {"label": "Packing list", "href": "#checklist"}
+      ]
+    },
+    {
+      "day": 11,
+      "date": "Thu 7 Dec",
+      "title": "Departure day",
+      "base": "Departure",
+      "status": ["Departure", "Transfer booked", "Apartment checkout"],
+      "summary": "A clean departure day with transfer timing handled, checkout simplified, and enough buffer to leave the trip feeling orderly rather than rushed.",
+      "bookings": ["Checkout timing confirmed", "Airport transfer booked", "Departure support loaded"],
+      "timeline": [
+        ["08:30", "Final breakfast", "Keep the last morning simple and unhurried."],
+        ["10:30", "Checkout", "Driver timing aligned with departure window."],
+        ["11:00", "Transfer out", "Head to the airport with buffer built in."]
+      ],
+      "actions": [
+        {"label": "Airport route", "href": "https://www.google.com/maps/search/Oaxaca+International+Airport/"},
+        {"label": "Support contact", "href": "mailto:journeys@tailormade-trip-demo.com"}
+      ]
+    }
+  ],
+  "studio": {
+    "projectName": "Tailormade Trip Builder",
+    "productSummary": "A private trip-building studio where one trip record powers the proposal, revision history, booked itinerary, and live companion site.",
+    "templates": ["Culture-first", "Beach finish", "Slow honeymoon", "Design-led city + coast"],
+    "modes": ["Proposal", "Revised", "Booked", "Live trip"],
+    "sourceNotes": "We want Mexico for late November. Cultured, atmospheric, not overly hectic. A few very well-chosen hotels and apartments. Food, design, local texture, but no over-programmed sightseeing.",
+    "parsedFields": {
+      "travellers": "2 travellers",
+      "dates": "27 Nov – 8 Dec",
+      "budget": "£8k–£12k",
+      "style": ["Culture", "Slow pace", "Beach finish", "Design-aware stays"],
+      "missing": ["Flight preference", "Room layout", "Any absolute hotel brand requirements"]
+    },
+    "workflowSteps": [
+      {
+        "name": "1. Create trip record",
+        "state": "Draft intake",
+        "body": [
+          "Start with a structured trip record rather than a blank design canvas so every proposal, revision, and live update stays tied to one source of truth.",
+          "The first screen should feel operational: client names, dates, budget band, trip type, privacy level, and chosen template."
+        ],
+        "modules": [
+          "Create trip: client name, dates, budget, privacy, mode",
+          "Choose template: culture-first / coast finish / family / honeymoon",
+          "Generate private slug and working URL immediately"
+        ],
+        "assistant": [
+          "Summarise the enquiry in one paragraph",
+          "Suggest the best-fit template based on tone and season",
+          "Draft a first hero headline from the brief"
+        ]
+      },
+      {
+        "name": "2. Import enquiry + notes",
+        "state": "Source material loaded",
+        "body": [
+          "Import the enquiry email, call notes, PDF snippets, and supplier references into one source panel so the raw inputs stop living across inboxes and documents.",
+          "Imported text does not publish automatically. It becomes source material for the trip designer to shape."
+        ],
+        "modules": [
+          "Paste email, questionnaire, or notes into one parser panel",
+          "Extract travellers, dates, budget, style cues, exclusions",
+          "Flag gaps before the next call"
+        ],
+        "assistant": [
+          "Extract structured fields from messy notes",
+          "List contradictions or missing essentials",
+          "Suggest follow-up questions"
+        ]
+      },
+      {
+        "name": "3. Shape brief + route",
+        "state": "Brief approved internally",
+        "body": [
+          "Turn raw input into trip logic: why this destination, what pace suits them, how many bases is enough, and what the trip should never become.",
+          "The software should make these decisions legible, not replace them."
+        ],
+        "modules": [
+          "Edit trip brief and 'why this fits' rationale",
+          "Set route structure, stay logic, and signature moments",
+          "Mark optional experiences versus core anchors"
+        ],
+        "assistant": [
+          "Rewrite notes into polished rationale",
+          "Stress-test the route against pace preferences",
+          "Generate alternate headings for each major section"
+        ]
+      },
+      {
+        "name": "4. Generate proposal site",
+        "state": "Proposal v1",
+        "body": [
+          "Once the route is shaped, generate the first private site from structured modules: hero, route cards, stay cards, itinerary cards, and proposal framing.",
+          "This should feel like a signature client experience rather than a brochure PDF."
+        ],
+        "modules": [
+          "Pick mode: proposal / revised / booked / live trip",
+          "Choose which modules are visible in proposal mode",
+          "Publish a preview link immediately"
+        ],
+        "assistant": [
+          "Turn structured data into elegant section copy",
+          "Suggest stronger editorial sequencing",
+          "Produce a concise cover note for the client email"
+        ]
+      },
+      {
+        "name": "5. Revise + publish live site",
+        "state": "Booked / live",
+        "body": [
+          "Client feedback updates the same trip record. After booking, the operational layer is added: contacts, today plan, packing, transfers, maps, and day-of-use prompts.",
+          "That is what turns the microsite into a premium working product rather than a static sales artefact."
+        ],
+        "modules": [
+          "Revision log with client-visible change summary",
+          "Booked mode adds maps, support, stays, transfers, and full itinerary",
+          "Publish live update without rebuilding manually"
+        ],
+        "assistant": [
+          "Write a clear 'what changed' summary",
+          "Generate concise mobile-friendly day prompts",
+          "Prepare post-trip keepsake mode"
+        ]
+      }
+    ]
+  }
+}

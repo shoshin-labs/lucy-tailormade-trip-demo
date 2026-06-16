@@ -1,167 +1,203 @@
-const steps = [
-  {
-    name: '1. Create trip record',
-    state: 'draft intake',
-    body: [
-      'Lucy starts by creating a trip record rather than opening a blank design canvas. This means every proposal, revision, and live-trip update is tied back to one source of truth.',
-      'The first screen should feel operational: client names, dates, budget band, trip purpose, route status, and privacy level.'
-    ],
-    modules: [
-      'Create trip: client name, dates, budget, proposal/live state',
-      'Choose a trip template: cultural circuit / beach finish / family / honeymoon',
-      'Generate private slug and working URL immediately'
-    ],
-    assistant: [
-      'Summarise the enquiry in one paragraph',
-      'Suggest the best-fit trip template based on tone and season',
-      'Draft a first hero headline from the client brief'
-    ],
-    panel: `
-      <div class="builder-grid">
-        <div class="builder-card"><span class="label">Trip record</span><div class="mini-list"><div class="mini-item"><span>Client</span><strong>Anna & Marcus</strong></div><div class="mini-item"><span>Dates</span><strong>27 Nov – 8 Dec</strong></div><div class="mini-item"><span>Budget</span><strong>£8k–£12k</strong></div></div></div>
-        <div class="builder-card"><span class="label">Template</span><div class="tag-row"><span class="tag">Culture-first</span><span class="tag">Design-led</span><span class="tag">Beach finish</span></div></div>
-        <div class="builder-card"><span class="label">Private URL</span><p class="muted">lucytrips.com/anna-marcus-oaxaca</p><span class="pill-note">created automatically</span></div>
-      </div>`
-  },
-  {
-    name: '2. Import enquiry + notes',
-    state: 'source material loaded',
-    body: [
-      'Next, Lucy imports what already exists: enquiry emails, call notes, PDF snippets, WhatsApp summaries, and supplier references. The goal is to stop information being scattered across inboxes and documents.',
-      'Imported text does not publish automatically. It becomes source material for Lucy to shape.'
-    ],
-    modules: [
-      'Paste email / questionnaire / notes into one import panel',
-      'Auto-extract travellers, dates, budget, style cues, and exclusions',
-      'Flag missing information for follow-up'
-    ],
-    assistant: [
-      'Extract structured fields from messy notes',
-      'List contradictions or missing essentials',
-      'Suggest follow-up questions before the next call'
-    ],
-    panel: `
-      <div class="import-grid">
-        <div class="import-card"><span class="label">Imported enquiry</span><textarea readonly>We want Mexico for late November. We'd love something cultured, atmospheric, and not overly hectic. A few very well-chosen stays. We like food, design, and meaningful local texture but do not want an over-programmed trip.</textarea></div>
-        <div class="import-card"><span class="label">Extracted fields</span><div class="tag-row"><span class="tag">Late November</span><span class="tag">2 travellers</span><span class="tag">Culture</span><span class="tag">Slow pace</span><span class="tag">Beach finish</span></div><div class="mini-list"><div class="mini-item"><span>Missing</span><strong>flight preference</strong></div><div class="mini-item"><span>Missing</span><strong>room layout</strong></div></div></div>
-      </div>`
-  },
-  {
-    name: '3. Shape brief + route',
-    state: 'brief approved internally',
-    body: [
-      'This is where Lucy does the premium work. She turns raw input into trip logic: why this destination, what pace suits them, how many bases is enough, and what the trip should never become.',
-      'The software should make those decisions legible, not replace them.'
-    ],
-    modules: [
-      'Edit trip brief and “why this fits” narrative',
-      'Set route structure, stay logic, and signature moments',
-      'Mark optional experiences versus core anchors'
-    ],
-    assistant: [
-      'Rewrite Lucy notes into polished proposal copy',
-      'Stress-test the route against stated pace preferences',
-      'Generate three alternate headings for each major section'
-    ],
-    panel: `
-      <div class="draft-grid">
-        <div class="draft-card"><span class="label">Trip logic</span><p class="muted">Oaxaca gives culture and food weight immediately; the mountain night creates contrast; the coast gives a calm final memory.</p></div>
-        <div class="draft-card"><span class="label">Signature moments</span><div class="mini-list"><div class="mini-item"><span>Maker visit</span><strong>core</strong></div><div class="mini-item"><span>Cooking day</span><strong>core</strong></div><div class="mini-item"><span>Lagoon excursion</span><strong>optional</strong></div></div></div>
-      </div>`
-  },
-  {
-    name: '4. Generate proposal site',
-    state: 'proposal v1',
-    body: [
-      'Once the route is shaped, Lucy generates the first private site from structured modules: hero, route cards, stay cards, itinerary cards, and proposal framing.',
-      'This should feel like a signature client experience rather than a generic brochure PDF.'
-    ],
-    modules: [
-      'Pick state: proposal / revised / booked / live',
-      'Choose which modules are visible in proposal mode',
-      'Publish a preview link Lucy can send immediately'
-    ],
-    assistant: [
-      'Turn structured data into elegant section copy',
-      'Suggest stronger editorial sequencing',
-      'Produce a concise cover note for the client email'
-    ],
-    panel: `
-      <div class="builder-grid">
-        <div class="builder-card"><span class="label">Site state</span><div class="state-row"><span class="state-pill active">Proposal</span><span class="state-pill">Revised</span><span class="state-pill">Booked</span><span class="state-pill">Live trip</span></div></div>
-        <div class="builder-card"><span class="label">Visible blocks</span><div class="tag-row"><span class="tag">Hero</span><span class="tag">Route</span><span class="tag">Chosen stays</span><span class="tag">Signature moments</span></div></div>
-        <div class="builder-card"><span class="label">Send</span><p class="muted">Share private link + short note from Lucy.</p><span class="pill-note">one-click copy later</span></div>
-      </div>`
-  },
-  {
-    name: '5. Revise + publish live site',
-    state: 'booked / live',
-    body: [
-      'Client feedback updates the same trip record. After booking, Lucy adds the operational layer: contacts, live plan, packing, maps, support, and today/tomorrow panels.',
-      'That is what turns the microsite into a premium working product rather than a static sales artefact.'
-    ],
-    modules: [
-      'Revision log with client-visible change summary',
-      'Booked mode adds maps, support contacts, and day-of-use blocks',
-      'Publish live update without rebuilding the site manually'
-    ],
-    assistant: [
-      'Write a clear “what changed” summary',
-      'Generate concise mobile-friendly day prompts',
-      'Prepare post-trip keepsake mode after return'
-    ],
-    panel: `
-      <div class="draft-grid">
-        <div class="timeline-card"><span class="label">Revision log</span><div class="mini-list"><div class="mini-item"><span>Version 2</span><strong>mountain stay reduced to 1 night</strong></div><div class="mini-item"><span>Version 3</span><strong>coast property upgraded</strong></div><div class="mini-item"><span>Live mode</span><strong>contacts + maps added</strong></div></div></div>
-        <div class="timeline-card"><span class="label">Publish actions</span><div class="action-stack"><button class="action-btn primary" type="button">Push client update</button><button class="action-btn" type="button">Copy change summary</button></div></div>
-      </div>`
-  }
-];
-
+const dataUrl = '../data/oaxaca-journey.json';
 const nav = document.getElementById('stepNav');
 const title = document.getElementById('stepTitle');
 const body = document.getElementById('stepBody');
 const assistantStack = document.getElementById('assistantStack');
 const statePill = document.getElementById('statePill');
+const tripHeading = document.getElementById('tripHeading');
+const tripPill = document.getElementById('tripPill');
+const recordSummary = document.getElementById('recordSummary');
+const recordInputs = document.getElementById('recordInputs');
+const recordOutput = document.getElementById('recordOutput');
+const schemaSummary = document.getElementById('schemaSummary');
+const schemaView = document.getElementById('schemaView');
+const previewCopy = document.getElementById('previewCopy');
+const pipelineList = document.getElementById('pipelineList');
+const modeSwitch = document.getElementById('modeSwitch');
 
-function render(i){
-  const step = steps[i];
-  title.textContent = step.name;
-  statePill.textContent = `State: ${step.state}`;
-  body.innerHTML = step.body.map(p => `<div class="module"><p class="muted">${p}</p></div>`).join('') +
-    `<div class="module"><span class="label">Core modules</span><ul>${step.modules.map(m => `<li>${m}</li>`).join('')}</ul></div>${step.panel}`;
+let tripData;
+let currentStep = 0;
+let currentMode = 'Proposal';
 
-  assistantStack.innerHTML = `
-    <div class="module"><span class="label">Agent actions</span><ul>${step.assistant.map(a => `<li>${a}</li>`).join('')}</ul></div>
-    <div class="module"><span class="label">Human stays in charge of</span><ul><li>destination judgement</li><li>route pacing</li><li>supplier/stay choice</li><li>final quality bar and tone</li></ul></div>`;
+const modeCopy = {
+  'Proposal': 'Proposal mode keeps the structure elegant but selective: hero, route, chosen stays, and a representative itinerary.',
+  'Revised': 'Revised mode adds change clarity: fewer surprises, clearer rationale, and a visible trail from version one to version two.',
+  'Booked': 'Booked mode turns the proposal into an operational itinerary with confirmed hotels, apartments, transfers, and day-by-day logistics.',
+  'Live trip': 'Live trip mode adds today panels, practical notes, and mobile-first prompts for use during the journey itself.'
+};
 
-  [...nav.children].forEach((btn, idx) => btn.classList.toggle('active', idx === i));
+function renderModeSwitch(modes){
+  modeSwitch.innerHTML = '';
+  modes.forEach(mode => {
+    const btn = document.createElement('button');
+    btn.className = 'mode-pill' + (mode === currentMode ? ' active' : '');
+    btn.textContent = mode;
+    btn.addEventListener('click', () => {
+      currentMode = mode;
+      renderModeSwitch(modes);
+      updateModeState();
+    });
+    modeSwitch.appendChild(btn);
+  });
 }
 
-steps.forEach((step, i) => {
-  const btn = document.createElement('button');
-  btn.className = 'step-link' + (i === 0 ? ' active' : '');
-  btn.textContent = step.name;
-  btn.addEventListener('click', () => render(i));
-  nav.appendChild(btn);
-});
-render(0);
+function renderRecordBoard(){
+  const { site, studio, stays, days } = tripData;
+  tripHeading.textContent = `${site.clients} — ${site.tripName}`;
+  tripPill.textContent = `${site.nights} nights · ${site.bases} bases · ${days.length} itinerary days`;
 
-document.getElementById('newTripBtn').addEventListener('click', () => render(0));
-document.getElementById('importBtn').addEventListener('click', () => render(1));
-document.getElementById('publishBtn').addEventListener('click', () => render(4));
-document.getElementById('generateBtn').addEventListener('click', () => render(3));
+  recordSummary.innerHTML = `
+    <span class="label">Trip summary</span>
+    <div class="mini-list">
+      <div class="mini-item"><span>Clients</span><strong>${site.clients}</strong></div>
+      <div class="mini-item"><span>Dates</span><strong>${site.dates}</strong></div>
+      <div class="mini-item"><span>Status</span><strong>${site.status}</strong></div>
+      <div class="mini-item"><span>Template</span><strong>${studio.templates[0]}</strong></div>
+    </div>`;
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('in-view');
-  });
-}, { threshold: 0.05, rootMargin: '0px 0px -8% 0px' });
+  recordInputs.innerHTML = `
+    <span class="label">Imported inputs</span>
+    <ul>
+      <li>Enquiry email and call notes</li>
+      <li>Stay shortlist narrowed to ${stays.length} booked bases</li>
+      <li>${studio.parsedFields.style.join(', ')}</li>
+      <li>Missing fields still visible before publish</li>
+    </ul>`;
 
-document.querySelectorAll('.reveal').forEach(el => {
-  if (el.getBoundingClientRect().top < window.innerHeight * 0.95) {
-    el.classList.add('in-view');
-  } else {
-    observer.observe(el);
+  recordOutput.innerHTML = `
+    <span class="label">Rendered outputs</span>
+    <ul>
+      <li>Proposal site</li>
+      <li>Revision history</li>
+      <li>Booked itinerary with hotels and apartment details</li>
+      <li>Live-trip companion with daily schedule</li>
+    </ul>`;
+}
+
+function renderSchema(){
+  const compact = {
+    site: tripData.site,
+    stays: tripData.stays.map(({ name, range, type, area }) => ({ name, range, type, area })),
+    itineraryDays: tripData.days.map(({ day, date, title, base }) => ({ day, date, title, base }))
+  };
+  schemaSummary.innerHTML = `
+    <span class="label">Schema health</span>
+    <div class="mini-list">
+      <div class="mini-item"><span>Shared JSON file</span><strong>1</strong></div>
+      <div class="mini-item"><span>Booked stays</span><strong>${tripData.stays.length}</strong></div>
+      <div class="mini-item"><span>Itinerary days</span><strong>${tripData.days.length}</strong></div>
+      <div class="mini-item"><span>Client modes</span><strong>${tripData.studio.modes.length}</strong></div>
+    </div>`;
+  schemaView.textContent = JSON.stringify(compact, null, 2);
+}
+
+function renderPipeline(){
+  pipelineList.innerHTML = tripData.studio.workflowSteps.map((step, index) => `
+    <div class="pipeline-row"><strong>${index + 1}.</strong><span>${step.modules[0]}</span></div>`).join('');
+}
+
+function createStepPanel(index){
+  const step = tripData.studio.workflowSteps[index];
+  const dayTitles = tripData.days.slice(0, 4).map(day => `<div class="mini-item"><span>${day.date}</span><strong>${day.title}</strong></div>`).join('');
+  if (index === 0) {
+    return `
+      <div class="panel-grid">
+        <div class="panel-card"><span class="label">Trip record</span><div class="mini-list"><div class="mini-item"><span>Client</span><strong>${tripData.site.clients}</strong></div><div class="mini-item"><span>Dates</span><strong>${tripData.site.dates}</strong></div><div class="mini-item"><span>Budget</span><strong>${tripData.studio.parsedFields.budget}</strong></div></div></div>
+        <div class="panel-card"><span class="label">Template chooser</span><div class="tag-row">${tripData.studio.templates.map(template => `<span class="tag">${template}</span>`).join('')}</div></div>
+        <div class="panel-card full"><span class="label">Generated identifiers</span><div class="mini-list"><div class="mini-item"><span>Private slug</span><strong>anna-marcus-oaxaca</strong></div><div class="mini-item"><span>Working URL</span><strong>/trip/?mode=${currentMode.toLowerCase().replace(/\s+/g,'-')}</strong></div></div></div>
+      </div>`;
   }
+  if (index === 1) {
+    return `
+      <div class="panel-grid">
+        <div class="panel-card"><span class="label">Imported notes</span><p class="muted">${tripData.studio.sourceNotes}</p></div>
+        <div class="panel-card"><span class="label">Parser output</span><div class="tag-row">${tripData.studio.parsedFields.style.map(tag => `<span class="tag">${tag}</span>`).join('')}</div><div class="mini-list">${tripData.studio.parsedFields.missing.map(item => `<div class="mini-item"><span>Missing</span><strong>${item}</strong></div>`).join('')}</div></div>
+      </div>`;
+  }
+  if (index === 2) {
+    return `
+      <div class="panel-grid">
+        <div class="panel-card"><span class="label">Route logic</span><p class="muted">${tripData.journeySummary.map(item => item.place).join(' → ')}</p><div class="tag-row"><span class="tag">${tripData.site.bases} bases only</span><span class="tag">Cultural density first</span><span class="tag">Calm coast finish</span></div></div>
+        <div class="panel-card"><span class="label">Stay structure</span><div class="mini-list">${tripData.stays.map(stay => `<div class="mini-item"><span>${stay.range}</span><strong>${stay.name}</strong></div>`).join('')}</div></div>
+        <div class="panel-card full"><span class="label">First itinerary pass</span><div class="mini-list">${dayTitles}</div></div>
+      </div>`;
+  }
+  if (index === 3) {
+    return `
+      <div class="panel-grid">
+        <div class="panel-card"><span class="label">Mode controls</span><div class="tag-row">${tripData.studio.modes.map(mode => `<span class="tag">${mode}</span>`).join('')}</div></div>
+        <div class="panel-card"><span class="label">Visible modules</span><div class="tag-row"><span class="tag">Hero</span><span class="tag">Route</span><span class="tag">Booked stays</span><span class="tag">Daily itinerary</span></div></div>
+        <div class="panel-card full"><span class="label">Proposal builder</span><p class="muted">This step renders the first polished site from the same JSON content model that later powers booked and live-trip views.</p></div>
+      </div>`;
+  }
+  return `
+    <div class="panel-grid">
+      <div class="panel-card"><span class="label">Revision log</span><div class="mini-list"><div class="mini-item"><span>Version 2</span><strong>Mountain stay reduced to 1 night</strong></div><div class="mini-item"><span>Version 3</span><strong>Coast apartment upgraded</strong></div><div class="mini-item"><span>Booked mode</span><strong>Transfers + daily plans added</strong></div></div></div>
+      <div class="panel-card"><span class="label">Live itinerary scope</span><div class="mini-list"><div class="mini-item"><span>Confirmed stays</span><strong>${tripData.stays.length}</strong></div><div class="mini-item"><span>Daily schedule cards</span><strong>${tripData.days.length}</strong></div><div class="mini-item"><span>Practical modules</span><strong>3 active</strong></div></div></div>
+      <div class="panel-card full"><span class="label">Publish action</span><p class="muted">Pushing live mode should never mean rebuilding from scratch. It just exposes more of the same data model: contacts, daily plans, weather pivots, and copyable notes.</p></div>
+    </div>`;
+}
+
+function renderStep(index){
+  const step = tripData.studio.workflowSteps[index];
+  currentStep = index;
+  title.textContent = step.name;
+  body.innerHTML = step.body.map(copy => `<div class="module"><p class="muted">${copy}</p></div>`).join('') + `<div class="module"><span class="label">Core modules</span><ul>${step.modules.map(item => `<li>${item}</li>`).join('')}</ul></div>${createStepPanel(index)}`;
+  assistantStack.innerHTML = `
+    <div class="module"><span class="label">Assistant actions</span><ul>${step.assistant.map(item => `<li>${item}</li>`).join('')}</ul></div>
+    <div class="module"><span class="label">Human stays in charge of</span><ul><li>Destination judgement</li><li>Pacing and route logic</li><li>Hotel / apartment selection</li><li>Final editorial quality bar</li></ul></div>`;
+  [...nav.children].forEach((btn, idx) => btn.classList.toggle('active', idx === index));
+}
+
+function renderStepNav(){
+  nav.innerHTML = '';
+  tripData.studio.workflowSteps.forEach((step, index) => {
+    const btn = document.createElement('button');
+    btn.className = 'step-link' + (index === currentStep ? ' active' : '');
+    btn.textContent = step.name;
+    btn.addEventListener('click', () => renderStep(index));
+    nav.appendChild(btn);
+  });
+}
+
+function updateModeState(){
+  statePill.textContent = `Mode: ${currentMode}`;
+  previewCopy.innerHTML = `<div class="module"><span class="label">Current mode</span><p class="muted">${modeCopy[currentMode]}</p></div><div class="module"><span class="label">What renders for the client</span><ul><li>${tripData.days.length} clear itinerary days</li><li>${tripData.stays.length} booked stay cards including hotel and apartment phases</li><li>Route, signature moments, practical actions, and support modules</li></ul></div>`;
+}
+
+function mountInteractions(){
+  document.getElementById('newTripBtn').addEventListener('click', () => renderStep(0));
+  document.getElementById('importBtn').addEventListener('click', () => renderStep(1));
+  document.getElementById('schemaBtn').addEventListener('click', () => schemaView.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  document.getElementById('publishBtn').addEventListener('click', () => { currentMode = 'Live trip'; renderModeSwitch(tripData.studio.modes); updateModeState(); renderStep(4); });
+  document.getElementById('generateBtn').addEventListener('click', () => { currentMode = 'Proposal'; renderModeSwitch(tripData.studio.modes); updateModeState(); renderStep(3); });
+}
+
+function mountReveal(){
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('in-view'); });
+  }, { threshold: 0.05, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.95) el.classList.add('in-view');
+    else observer.observe(el);
+  });
+}
+
+async function init(){
+  const res = await fetch(dataUrl);
+  tripData = await res.json();
+  renderRecordBoard();
+  renderSchema();
+  renderPipeline();
+  renderModeSwitch(tripData.studio.modes);
+  renderStepNav();
+  renderStep(0);
+  updateModeState();
+  mountInteractions();
+  mountReveal();
+}
+
+init().catch(err => {
+  title.textContent = 'Failed to load studio data';
+  body.innerHTML = `<div class="module"><p class="muted">${err.message}</p></div>`;
 });

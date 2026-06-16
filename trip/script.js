@@ -1,171 +1,210 @@
-const days = [
-  {
-    title: 'Day 1 — Arrive into Oaxaca',
-    meta: ['Soft landing', 'Private transfer', 'Easy first dinner'],
-    copy: 'The trip opens gently: private airport meet, time to settle into the courtyard hotel, and a first evening within walking distance so the city arrives as atmosphere rather than admin.',
-    bullets: ['Airport pickup timed to arrival', 'Dinner options already linked in the site', 'No fixed activity beyond checking in and exhaling'],
-    timeline: [
-      ['15:30', 'Airport meet and transfer', 'Driver meets at arrivals and takes you straight into Oaxaca Centro.'],
-      ['17:00', 'Hotel settle-in', 'Unpack, shower, and take the courtyard in slowly.'],
-      ['20:00', 'Simple first dinner', 'Choose one of the nearby options depending on energy.']
-    ],
-    links: [
-      ['Airport map', 'https://www.google.com/maps/search/Oaxaca+International+Airport/'],
-      ['Centro map', 'https://www.google.com/maps/search/Oaxaca+Centro/']
-    ]
-  },
-  {
-    title: 'Day 3 — Culinary Oaxaca',
-    meta: ['Food-led day', 'Market + cooking', 'Open evening'],
-    copy: 'This is one of the signature days: market textures in the morning, a cooking session that gives local life shape and flavour, then a free late afternoon to browse, rest, or return to a favourite street.',
-    bullets: ['Food angle made more explicit after client feedback', 'Designed to feel participatory rather than performative', 'Suggested bar and gallery options loaded for later'],
-    timeline: [
-      ['09:00', 'Market pass', 'Walk Mercado 20 de Noviembre before the city gets too hot.'],
-      ['11:30', 'Cooking session', 'Hands-on lunch prep with regional ingredients and stories.'],
-      ['17:30', 'Open evening', 'Take a mezcal bar, gallery, or rooftop option only if it feels right.']
-    ],
-    links: [
-      ['Market pin', 'https://www.google.com/maps/search/Mercado+20+de+Noviembre+Oaxaca/'],
-      ['Santo Domingo', 'https://www.google.com/maps/search/Templo+de+Santo+Domingo+de+Guzman+Oaxaca/']
-    ]
-  },
-  {
-    title: 'Day 5 — Sierra Norte reset',
-    meta: ['1 night only', 'Mountain contrast', 'Low-friction pacing'],
-    copy: 'Just enough time in the mountains to change the emotional register of the journey: cooler air, a guided walk, and one quieter evening before the coast.',
-    bullets: ['Reduced from 2 nights to 1 in revision', 'Keeps the contrast without making the trip feel over-segmented', 'Luggage handling note lives in the practical layer'],
-    timeline: [
-      ['10:00', 'Depart Oaxaca', 'Driver route north with a light stop for coffee and scenery.'],
-      ['13:00', 'Guided walk', 'A low-pressure trail designed for pace and atmosphere, not mileage.'],
-      ['19:00', 'Firelit dinner', 'Early supper and a genuinely quiet night.']
-    ],
-    links: [
-      ['Sierra Norte map', 'https://www.google.com/maps/search/Sierra+Norte+Oaxaca/'],
-      ['Trail region', 'https://www.google.com/maps/search/Pueblos+Mancomunados+Oaxaca/']
-    ]
-  },
-  {
-    title: 'Days 6–11 — Pacific coast finish',
-    meta: ['Long exhale', 'Flexible final days', 'Optional nature'],
-    copy: 'The coast portion is deliberately spacious: one or two lightly programmed moments, but mostly time to swim, nap, eat late, or choose a boat or lagoon outing only if the mood is right.',
-    bullets: ['Design-led coast property for stronger fit', 'Weather pivots can shift the day without email churn', 'The final memory of the trip is calm rather than frantic'],
-    timeline: [
-      ['09:30', 'Slow breakfast', 'No imposed rush once you have reached the coast.'],
-      ['13:00', 'Beach or pool', 'A long middle stretch for real rest.'],
-      ['17:45', 'Sunset decision point', 'Beach walk, cocktails, or lagoon depending on weather and mood.']
-    ],
-    links: [
-      ['Puerto Escondido', 'https://www.google.com/maps/search/Puerto+Escondido+Oaxaca/'],
-      ['Lagoon option', 'https://www.google.com/maps/search/Manialtepec+Lagoon+Oaxaca/']
-    ]
-  }
-];
-
-const weatherModes = {
-  sun: 'Best for the coast days and valley outings: keep the longer outside lunch, the beach window, and the studio stop. Use hats, light linen, and cash for small craft purchases.',
-  rain: 'If energy dips or the weather turns, swap the more exposed excursion for a gentler city museum pass, longer lunch, or hotel courtyard afternoon. The point is to preserve tone, not force the original plan.'
-};
-
-const checklistItems = [
-  'Passport and arrival docs',
-  'Light layers for mountain temperature change',
-  'Sandals + one smarter dinner option',
-  'Cash for small producers and market stops',
-  'Swimwear and sun protection'
-];
-
-const switcher = document.getElementById('daySwitcher');
-const detail = document.getElementById('dayDetail');
+const dataUrl = '../data/oaxaca-journey.json';
+const topbar = document.getElementById('topbar');
+const hero = document.getElementById('hero');
+const todayHeading = document.getElementById('todayHeading');
+const todayGrid = document.getElementById('todayGrid');
+const routeTimeline = document.getElementById('routeTimeline');
+const stayGrid = document.getElementById('stayGrid');
+const daySwitcher = document.getElementById('daySwitcher');
+const dayDetail = document.getElementById('dayDetail');
+const momentsGrid = document.getElementById('momentsGrid');
 const weatherToggle = document.getElementById('weatherToggle');
 const weatherCopy = document.getElementById('weatherCopy');
 const checklistBox = document.getElementById('checklistBox');
-const topbar = document.getElementById('topbar');
+const copyStack = document.getElementById('copyStack');
+const contactsBox = document.getElementById('contactsBox');
 
-function renderDetail(i){
-  const d = days[i];
-  detail.innerHTML = `
-    <span class="label">Selected day</span>
-    <h3>${d.title}</h3>
-    <div class="meta">${d.meta.map(m => `<span>${m}</span>`).join('')}</div>
-    <p>${d.copy}</p>
-    <ul>${d.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
-    <div class="timeline-list">${d.timeline.map(([time, title, copy]) => `
-      <div class="timeline-row">
-        <div class="timeline-time">${time}</div>
-        <div class="timeline-content"><strong>${title}</strong><span>${copy}</span></div>
-      </div>`).join('')}
+let tripData;
+
+function renderHero(data){
+  hero.innerHTML = `
+    <div class="overlay"></div>
+    <div class="hero-content reveal">
+      <div class="status-row">
+        <span class="status live">${data.hero.eyebrow} · ${data.site.status}</span>
+        <span class="status gold">${data.site.dates}</span>
+      </div>
+      <p class="eyebrow">${data.site.clients}</p>
+      <h1>${data.site.tripName}</h1>
+      <p class="lede">${data.site.tone}</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#today">Open today’s plan</a>
+        <a class="btn" href="#itinerary">See full itinerary</a>
+      </div>
+      <div class="info-ribbon">${data.hero.infoRibbon.map(item => `<span>${item}</span>`).join('')}</div>
     </div>
-    <div class="micro-links">${d.links.map(([label, href]) => `<a target="_blank" rel="noreferrer" href="${href}">${label}</a>`).join('')}</div>`;
-  [...switcher.children].forEach((btn, idx) => btn.classList.toggle('active', idx === i));
+    <aside class="floating-card reveal">
+      <span class="label">Quick access</span>
+      <h3>What you need first</h3>
+      <div class="button-stack compact">${data.hero.quickActions.map(item => `<a class="btn small ${item.label === 'Airport map' ? 'primary' : ''}" href="${item.href}" ${item.href.startsWith('http') ? 'target="_blank" rel="noreferrer"' : ''}>${item.label}</a>`).join('')}</div>
+    </aside>`;
 }
 
-days.forEach((d, i) => {
-  const btn = document.createElement('button');
-  btn.className = 'day-chip' + (i === 0 ? ' active' : '');
-  btn.textContent = d.title;
-  btn.addEventListener('click', () => renderDetail(i));
-  switcher.appendChild(btn);
-});
-renderDetail(0);
-
-function renderWeather(mode){
-  weatherCopy.textContent = weatherModes[mode];
-  [...weatherToggle.querySelectorAll('.toggle-chip')].forEach(btn => btn.classList.toggle('active', btn.dataset.mode === mode));
+function renderToday(day){
+  todayHeading.textContent = `${day.title} — ${day.date}`;
+  todayGrid.innerHTML = `
+    <article class="glass-card highlight">
+      <span class="label">Live plan</span>
+      <h3>${day.base}</h3>
+      <ul>${day.timeline.map(([time, title]) => `<li><strong>${time}</strong> ${title}</li>`).join('')}</ul>
+    </article>
+    <article class="glass-card">
+      <span class="label">Confirmed today</span>
+      <div class="booking-pills">${day.bookings.map(item => `<span class="booking-pill">${item}</span>`).join('')}</div>
+    </article>
+    <article class="glass-card">
+      <span class="label">Useful actions</span>
+      <div class="button-stack">${day.actions.map((item, index) => `<a class="btn small ${index === 0 ? 'primary' : ''}" href="${item.href}" target="_blank" rel="noreferrer">${item.label}</a>`).join('')}</div>
+    </article>
+    <article class="glass-card">
+      <span class="label">Day rhythm</span>
+      <p>${day.summary}</p>
+    </article>`;
 }
-weatherToggle.querySelectorAll('.toggle-chip').forEach(btn => {
-  btn.addEventListener('click', () => renderWeather(btn.dataset.mode));
-});
-renderWeather('sun');
 
-const savedChecklist = JSON.parse(localStorage.getItem('lucyTripChecklist') || '{}');
-function renderChecklist(){
+function renderRoute(items){
+  routeTimeline.innerHTML = items.map(item => `
+    <article class="route-card">
+      <span class="route-day">${item.range}</span>
+      <h3>${item.place}</h3>
+      <p>${item.summary}</p>
+      <div class="micro-links">${item.links.map(link => `<a href="${link.href}" target="_blank" rel="noreferrer">${link.label}</a>`).join('')}</div>
+    </article>`).join('');
+}
+
+function stayClass(index){ return index === 0 ? 'city' : index === 1 ? 'mountain' : 'coast'; }
+function renderStays(stays){
+  stayGrid.innerHTML = stays.map((stay, index) => `
+    <article class="stay-card reveal ${index === 2 ? 'wide' : ''}">
+      <div class="stay-image ${stayClass(index)}"></div>
+      <div class="stay-copy">
+        <span class="label">${stay.range} · ${stay.type}</span>
+        <h3>${stay.name}</h3>
+        <p>${stay.summary}</p>
+        <div class="booking-pills">${stay.notes.map(item => `<span class="booking-pill">${item}</span>`).join('')}</div>
+        <div class="micro-links"><a href="${stay.map}" target="_blank" rel="noreferrer">Open map</a><a href="#itinerary">View linked days</a></div>
+      </div>
+    </article>`).join('');
+}
+
+function momentClass(index){ return index === 0 ? 'market' : index === 1 ? 'studio-shot' : 'coast-shot'; }
+function renderMoments(items){
+  momentsGrid.innerHTML = items.map((item, index) => `
+    <article class="moment-card reveal">
+      <div class="moment-image ${momentClass(index)}"></div>
+      <div class="moment-copy">
+        <span class="label">${item.place}</span>
+        <h3>${item.title}</h3>
+        <p>${item.summary}</p>
+        <div class="button-stack compact">${item.links.map((link, linkIndex) => `<a class="btn small ${linkIndex === 0 ? 'primary' : ''}" href="${link.href}" ${link.href.startsWith('http') ? 'target="_blank" rel="noreferrer"' : ''}>${link.label}</a>`).join('')}</div>
+      </div>
+    </article>`).join('');
+}
+
+function renderDayDetail(dayIndex){
+  const day = tripData.days[dayIndex];
+  dayDetail.innerHTML = `
+    <span class="label">Selected day</span>
+    <h3>${day.title}</h3>
+    <div class="meta"><span>${day.date}</span><span>${day.base}</span>${day.status.map(item => `<span>${item}</span>`).join('')}</div>
+    <p>${day.summary}</p>
+    <div class="booking-pills">${day.bookings.map(item => `<span class="booking-pill">${item}</span>`).join('')}</div>
+    <div class="timeline-list">${day.timeline.map(([time, title, copy]) => `<div class="timeline-row"><div class="timeline-time">${time}</div><div class="timeline-content"><strong>${title}</strong><span>${copy}</span></div></div>`).join('')}</div>
+    <div class="micro-links">${day.actions.map(item => `<a href="${item.href}" ${item.href.startsWith('http') ? 'target="_blank" rel="noreferrer"' : ''}>${item.label}</a>`).join('')}</div>`;
+  [...daySwitcher.children].forEach((btn, idx) => btn.classList.toggle('active', idx === dayIndex));
+}
+
+function renderDaySwitcher(days){
+  daySwitcher.innerHTML = '';
+  days.forEach((day, index) => {
+    const btn = document.createElement('button');
+    btn.className = 'day-chip' + (index === 0 ? ' active' : '');
+    btn.textContent = `Day ${day.day} · ${day.title}`;
+    btn.addEventListener('click', () => renderDayDetail(index));
+    daySwitcher.appendChild(btn);
+  });
+  renderDayDetail(0);
+}
+
+function renderWeather(practical){
+  weatherToggle.innerHTML = `
+    <button class="toggle-chip active" data-mode="sun">Sunny day</button>
+    <button class="toggle-chip" data-mode="rain">Rain / low energy</button>`;
+  const modes = practical.weather;
+  function setMode(mode){
+    weatherCopy.textContent = modes[mode];
+    [...weatherToggle.querySelectorAll('.toggle-chip')].forEach(btn => btn.classList.toggle('active', btn.dataset.mode === mode));
+  }
+  weatherToggle.querySelectorAll('.toggle-chip').forEach(btn => btn.addEventListener('click', () => setMode(btn.dataset.mode)));
+  setMode('sun');
+}
+
+function renderChecklist(practical){
+  const savedChecklist = JSON.parse(localStorage.getItem('tailormadeTripChecklist') || '{}');
   checklistBox.innerHTML = '';
-  checklistItems.forEach((item, idx) => {
+  practical.checklist.forEach((item, index) => {
     const row = document.createElement('label');
-    row.className = 'check-item' + (savedChecklist[idx] ? ' done' : '');
-    row.innerHTML = `<input type="checkbox" ${savedChecklist[idx] ? 'checked' : ''}><span>${item}</span>`;
-    const input = row.querySelector('input');
-    input.addEventListener('change', () => {
-      savedChecklist[idx] = input.checked;
-      localStorage.setItem('lucyTripChecklist', JSON.stringify(savedChecklist));
-      row.classList.toggle('done', input.checked);
+    row.className = 'check-item' + (savedChecklist[index] ? ' done' : '');
+    row.innerHTML = `<input type="checkbox" ${savedChecklist[index] ? 'checked' : ''}><span>${item}</span>`;
+    row.querySelector('input').addEventListener('change', event => {
+      savedChecklist[index] = event.target.checked;
+      localStorage.setItem('tailormadeTripChecklist', JSON.stringify(savedChecklist));
+      row.classList.toggle('done', event.target.checked);
     });
     checklistBox.appendChild(row);
   });
 }
-renderChecklist();
 
-document.querySelectorAll('.copy-card').forEach(card => {
-  card.addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText(card.dataset.copy);
-      const original = card.textContent;
-      card.textContent = 'Copied';
-      card.classList.add('copied');
-      setTimeout(() => {
-        card.textContent = original;
-        card.classList.remove('copied');
-      }, 1200);
-    } catch {
-      card.textContent = 'Copy failed';
-    }
+function renderCopyNotes(practical){
+  copyStack.innerHTML = practical.copyNotes.map(item => `<button class="copy-card" data-copy="${item.replace(/"/g, '&quot;')}">Copy: ${item}</button>`).join('');
+  document.querySelectorAll('.copy-card').forEach(card => {
+    card.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(card.dataset.copy);
+        const original = card.textContent;
+        card.textContent = 'Copied';
+        card.classList.add('copied');
+        setTimeout(() => { card.textContent = original; card.classList.remove('copied'); }, 1200);
+      } catch {
+        card.textContent = 'Copy failed';
+      }
+    });
   });
-});
+}
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('in-view');
+function renderContacts(practical){
+  contactsBox.innerHTML = practical.contacts.map((item, index) => `<a class="btn small ${index === 0 ? 'primary' : ''}" href="${item.href}" ${item.href.startsWith('http') ? 'target="_blank" rel="noreferrer"' : ''}>${item.label}</a>`).join('');
+}
+
+function mountReveal(){
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('in-view'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.95) el.classList.add('in-view');
+    else observer.observe(el);
   });
-}, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+}
 
-document.querySelectorAll('.reveal').forEach(el => {
-  if (el.getBoundingClientRect().top < window.innerHeight * 0.95) {
-    el.classList.add('in-view');
-  } else {
-    observer.observe(el);
-  }
+window.addEventListener('scroll', () => topbar.classList.toggle('scrolled', window.scrollY > 24), { passive: true });
+
+async function init(){
+  const res = await fetch(dataUrl);
+  tripData = await res.json();
+  renderHero(tripData);
+  renderToday(tripData.days[3]);
+  renderRoute(tripData.journeySummary);
+  renderStays(tripData.stays);
+  renderDaySwitcher(tripData.days);
+  renderMoments(tripData.signatureMoments);
+  renderWeather(tripData.practical);
+  renderChecklist(tripData.practical);
+  renderCopyNotes(tripData.practical);
+  renderContacts(tripData.practical);
+  mountReveal();
+}
+
+init().catch(err => {
+  todayHeading.textContent = 'Failed to load itinerary';
+  todayGrid.innerHTML = `<article class="glass-card"><p>${err.message}</p></article>`;
 });
-
-window.addEventListener('scroll', () => {
-  topbar.classList.toggle('scrolled', window.scrollY > 24);
-}, { passive: true });

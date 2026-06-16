@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anna & Marcus — Oaxaca Journey</title>
-  <meta name="description" content="Private client trip microsite demo for an Oaxaca Highlands & Pacific Coast journey." />
+  <title>Oaxaca Highlands & Pacific Coast</title>
+  <meta name="description" content="Private trip site demo with a full booked itinerary, stays, route, and practical travel companion features." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
@@ -12,192 +12,62 @@
 </head>
 <body>
   <header class="topbar" id="topbar">
-    <a class="brand" href="../">Lucy Rogers Tailormade Trips</a>
+    <a class="brand" href="../">Tailormade trip demo</a>
     <nav>
       <a href="#today">Today</a>
       <a href="#route">Route</a>
+      <a href="#stays">Stays</a>
       <a href="#itinerary">Itinerary</a>
-      <a href="#moments">Moments</a>
       <a href="#practical">Practical</a>
     </nav>
   </header>
 
-  <section class="hero fullbleed">
-    <div class="overlay"></div>
-    <div class="hero-content reveal">
-      <div class="status-row">
-        <span class="status live">Private client site · booked journey</span>
-        <span class="status gold">27 Nov – 8 Dec</span>
-      </div>
-      <p class="eyebrow">Anna & Marcus</p>
-      <h1>Oaxaca Highlands &amp; Pacific Coast</h1>
-      <p class="lede">A November journey through markets, mountain air, studio visits, and a beautifully slow coast finish — designed to feel culturally rich, visually calm, and easy to use while travelling.</p>
-      <div class="hero-actions">
-        <a class="btn primary" href="#today">Open today’s plan</a>
-        <a class="btn" href="#itinerary">See day-by-day flow</a>
-      </div>
-      <div class="info-ribbon">
-        <span>11 nights</span>
-        <span>3 bases</span>
-        <span>private guiding + free time</span>
-        <span>proposal → booked → live companion</span>
-      </div>
-    </div>
-    <aside class="floating-card reveal">
-      <span class="label">Quick access</span>
-      <h3>What you need first</h3>
-      <div class="button-stack compact">
-        <a class="btn small primary" target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/Oaxaca+International+Airport/">Airport map</a>
-        <a class="btn small" target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/Templo+de+Santo+Domingo+de+Guzman+Oaxaca/">Favourite city pin</a>
-        <a class="btn small" href="#checklist">Packing checklist</a>
-      </div>
-    </aside>
-  </section>
+  <section class="hero fullbleed" id="hero"></section>
 
   <main>
     <section class="split-section" id="today">
       <div class="image-panel mezcal"></div>
       <div class="content-panel dark reveal">
         <p class="eyebrow">Today</p>
-        <h2>Studio visit, producer lunch, and an easy evening nearby</h2>
-        <div class="today-grid">
-          <article class="glass-card highlight">
-            <span class="label">Live plan</span>
-            <h3>Thu 29 Nov</h3>
-            <ul>
-              <li><strong>10:00</strong> pickup from hotel courtyard</li>
-              <li><strong>11:00</strong> textile studio visit and conversation</li>
-              <li><strong>13:30</strong> mezcal producer lunch in the valley</li>
-              <li><strong>16:30</strong> return to Oaxaca for a slow evening</li>
-            </ul>
-          </article>
-          <article class="glass-card">
-            <span class="label">Bring today</span>
-            <ul>
-              <li>Light layer for cooler workshop interiors</li>
-              <li>Cash if you’d like to buy directly from the maker</li>
-              <li>Phone charged for photos and live map links</li>
-            </ul>
-          </article>
-          <article class="glass-card">
-            <span class="label">Useful actions</span>
-            <div class="button-stack">
-              <a class="btn small primary" target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/Oaxaca+Centro/">Open local map</a>
-              <a class="btn small" href="mailto:demo@lucyrogerstailormadetrips.co.uk?subject=Anna%20and%20Marcus%20trip%20question">Message Lucy</a>
-              <a class="btn small" target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/Teotitlan+del+Valle+Oaxaca/">Open studio area</a>
-            </div>
-          </article>
-          <article class="glass-card">
-            <span class="label">Dinner nearby</span>
-            <div class="micro-links">
-              <a target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/Casa+Oaxaca+El+Restaurante/">Courtyard dinner</a>
-              <a target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/Levadura+de+Olla+Oaxaca/">Refined local cooking</a>
-              <a target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/Tierra+del+Sol+Casa+Restaurante+Oaxaca/">Rooftop option</a>
-            </div>
-          </article>
-        </div>
+        <h2 id="todayHeading">Loading today’s plan…</h2>
+        <div class="today-grid" id="todayGrid"></div>
       </div>
     </section>
 
     <section class="quote-band reveal">
-      <p>“The site should feel less like paperwork and more like the trip already has a pulse.”</p>
+      <p>“The trip should feel designed all the way through, but never over-explained.”</p>
     </section>
 
     <section class="content-wrap route-wrap reveal" id="route">
       <div class="section-head">
         <p class="eyebrow">The route</p>
         <h2>A journey sequenced for atmosphere</h2>
-        <p>The rhythm is deliberate: cultural density first, one mountain reset in the middle, then a coastal finish with enough space for the trip to breathe.</p>
+        <p>The rhythm is deliberate: cultural density first, one mountain reset in the middle, then a coast finish with enough space for the trip to breathe.</p>
       </div>
-      <div class="route-timeline">
-        <article class="route-card">
-          <span class="route-day">Days 1–4</span>
-          <h3>Oaxaca City</h3>
-          <p>Markets, architecture, food, maker visits, and a sense of being truly inside the place rather than ticking it off.</p>
-          <div class="micro-links">
-            <a target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/Oaxaca+Centro/">Map</a>
-            <a target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/Mercado+20+de+Noviembre+Oaxaca/">Market pin</a>
-          </div>
-        </article>
-        <article class="route-card">
-          <span class="route-day">Day 5</span>
-          <h3>Sierra Norte</h3>
-          <p>One night of cooler air and a guided walk — enough contrast to reset the mood without turning the trip into a logistical relay.</p>
-          <div class="micro-links">
-            <a target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/Sierra+Norte+Oaxaca/">Map</a>
-            <a target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/Pueblos+Mancomunados+Oaxaca/">Trail region</a>
-          </div>
-        </article>
-        <article class="route-card">
-          <span class="route-day">Days 6–11</span>
-          <h3>Pacific Coast</h3>
-          <p>A smaller, design-led coast stay with room for beach time, optional boat or lagoon nature, and late lunches that stretch into evening.</p>
-          <div class="micro-links">
-            <a target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/Puerto+Escondido+Oaxaca/">Map</a>
-            <a target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/Manialtepec+Lagoon+Oaxaca/">Lagoon option</a>
-          </div>
-        </article>
-      </div>
+      <div class="route-timeline" id="routeTimeline"></div>
     </section>
 
     <section class="fullbleed-panel artisan-panel reveal">
       <div class="panel-copy">
         <p class="eyebrow">Why this works</p>
         <h2>It’s not luxury by volume. It’s luxury by judgement.</h2>
-        <p>Fewer bases, stronger local texture, and enough empty space that the trip still feels like theirs rather than a performance of sightseeing.</p>
+        <p>Fewer bases, stronger local texture, booked logistics handled cleanly, and enough empty space that the trip still feels like theirs rather than a performance of sightseeing.</p>
       </div>
     </section>
 
     <section class="content-wrap" id="stays">
       <div class="section-head reveal">
-        <p class="eyebrow">Chosen stays</p>
-        <h2>Three beautiful bases, each doing a different job</h2>
+        <p class="eyebrow">Booked stays</p>
+        <h2>Hotels and apartment phases, clearly laid out</h2>
       </div>
-      <div class="stay-grid">
-        <article class="stay-card reveal">
-          <div class="stay-image city"></div>
-          <div class="stay-copy">
-            <span class="label">27–30 Nov</span>
-            <h3>Oaxaca courtyard hotel</h3>
-            <p>A calm, design-aware city base with easy access to markets, galleries, and dinners on foot.</p>
-            <div class="micro-links">
-              <a target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/Oaxaca+Centro/">Neighbourhood map</a>
-              <a href="#moments">See nearby moments</a>
-            </div>
-          </div>
-        </article>
-        <article class="stay-card reveal">
-          <div class="stay-image mountain"></div>
-          <div class="stay-copy">
-            <span class="label">30 Nov–1 Dec</span>
-            <h3>Sierra Norte lodge</h3>
-            <p>Simple, scenic, and chosen for the reset it creates in the narrative of the trip — mountain air, a guide, and a quieter night.</p>
-            <div class="micro-links">
-              <a target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/Sierra+Norte+Oaxaca/">Open map</a>
-              <a href="#weatherMode">Weather pivots</a>
-            </div>
-          </div>
-        </article>
-        <article class="stay-card wide reveal">
-          <div class="stay-image coast"></div>
-          <div class="stay-copy">
-            <span class="label">1–6 Dec</span>
-            <h3>Pacific coast retreat</h3>
-            <p>Intimate, warm, and visually calm — the kind of place where the final days can hold both planned moments and total idleness without wasting the trip.</p>
-            <div class="micro-links">
-              <a target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/Puerto+Escondido+Oaxaca/">Open coast map</a>
-              <a href="#checklist">Pre-departure list</a>
-            </div>
-          </div>
-        </article>
-      </div>
+      <div class="stay-grid" id="stayGrid"></div>
     </section>
 
     <section class="content-wrap itinerary-wrap reveal" id="itinerary">
       <div class="section-head">
-        <p class="eyebrow">Day by day</p>
-        <h2>Representative itinerary</h2>
-        <p>Tap into the trip rhythm by day, with linked moments, practical prompts, and route logic rather than a dead block of copy.</p>
+        <p class="eyebrow">Full itinerary</p>
+        <h2>Every day, clearly planned</h2>
+        <p>This is the actual working itinerary: each day shows the base, confirmed bookings, and the intended rhythm of the day.</p>
       </div>
       <div class="day-switcher" id="daySwitcher"></div>
       <article class="day-detail glass-card large" id="dayDetail"></article>
@@ -206,61 +76,21 @@
     <section class="content-wrap moments-wrap" id="moments">
       <div class="section-head reveal">
         <p class="eyebrow">Signature moments</p>
-        <h2>The details clients actually remember</h2>
-        <p>These are the touchpoints that make the trip feel designed, not generic: one market corner, one table, one swim, one maker conversation.</p>
+        <h2>The details that hold the trip together</h2>
+        <p>These are the parts that make the journey feel considered rather than generic.</p>
       </div>
-      <div class="moments-grid">
-        <article class="moment-card reveal" data-accent="gold">
-          <div class="moment-image market"></div>
-          <div class="moment-copy">
-            <span class="label">Oaxaca City</span>
-            <h3>Morning market pass</h3>
-            <p>Start the city properly with market texture first, before museums or formal touring.</p>
-            <div class="button-stack compact">
-              <a class="btn small primary" target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/Mercado+20+de+Noviembre+Oaxaca/">Open map</a>
-              <a class="btn small" target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/Mercado+Benito+Juarez+Oaxaca/">Nearby option</a>
-            </div>
-          </div>
-        </article>
-        <article class="moment-card reveal" data-accent="teal">
-          <div class="moment-image studio-shot"></div>
-          <div class="moment-copy">
-            <span class="label">Valley makers</span>
-            <h3>Textile studio conversation</h3>
-            <p>A small, human-scale visit that gives the craft context and keeps the day feeling personal.</p>
-            <div class="button-stack compact">
-              <a class="btn small primary" target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/Teotitlan+del+Valle+Oaxaca/">Visit area</a>
-              <a class="btn small" href="#today">See today’s timing</a>
-            </div>
-          </div>
-        </article>
-        <article class="moment-card reveal" data-accent="sand">
-          <div class="moment-image coast-shot"></div>
-          <div class="moment-copy">
-            <span class="label">Pacific finish</span>
-            <h3>Sunset beach and lagoon option</h3>
-            <p>The trip ends with choices, not obligations: stay horizontal, or add one last nature note if the mood is right.</p>
-            <div class="button-stack compact">
-              <a class="btn small primary" target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/Playa+Carrizalillo+Puerto+Escondido/">Beach pin</a>
-              <a class="btn small" target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/Manialtepec+Lagoon+Oaxaca/">Lagoon pin</a>
-            </div>
-          </div>
-        </article>
-      </div>
+      <div class="moments-grid" id="momentsGrid"></div>
     </section>
 
     <section class="content-wrap practical-wrap" id="practical">
       <div class="section-head reveal">
         <p class="eyebrow">Practical travel companion</p>
-        <h2>Useful when you are actually out there</h2>
+        <h2>Useful while you are actually travelling</h2>
       </div>
       <div class="practical-grid">
         <article class="glass-card reveal" id="weatherMode">
           <span class="label">Weather pivots</span>
-          <div class="toggle-row" id="weatherToggle">
-            <button class="toggle-chip active" data-mode="sun">Sunny day</button>
-            <button class="toggle-chip" data-mode="rain">Rain / low energy</button>
-          </div>
+          <div class="toggle-row" id="weatherToggle"></div>
           <div class="weather-copy" id="weatherCopy"></div>
         </article>
         <article class="glass-card reveal" id="checklist">
@@ -269,19 +99,11 @@
         </article>
         <article class="glass-card reveal">
           <span class="label">Copyable local notes</span>
-          <div class="copy-stack">
-            <button class="copy-card" data-copy="Nos vemos en el patio del hotel a las diez.">Copy meeting phrase</button>
-            <button class="copy-card" data-copy="La cuenta, por favor.">Copy simple restaurant phrase</button>
-            <button class="copy-card" data-copy="Carry some cash for small producers and market stops.">Copy reminder note</button>
-          </div>
+          <div class="copy-stack" id="copyStack"></div>
         </article>
         <article class="glass-card reveal">
           <span class="label">Core contacts</span>
-          <div class="button-stack">
-            <a class="btn small primary" href="mailto:demo@lucyrogerstailormadetrips.co.uk">Email Lucy</a>
-            <a class="btn small" href="tel:+440000000000">Call support</a>
-            <a class="btn small" target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/Oaxaca+International+Airport/">Airport route</a>
-          </div>
+          <div class="button-stack" id="contactsBox"></div>
         </article>
       </div>
     </section>
